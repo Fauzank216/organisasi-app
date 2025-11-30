@@ -75,8 +75,8 @@ CREATE TABLE `schedule` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `date_start` date NOT NULL,
   `date_end` date DEFAULT NULL,
-   `avatar` text NOT NULL DEFAULT '/profile.webp',
-  `status` enum('Toward','Done','Cancel') NOT NULL DEFAULT 'Toward'
+  `status` enum('Toward','Done','Cancel') NOT NULL DEFAULT 'Toward',
+   `avatar` text NOT NULL DEFAULT '/profile.webp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

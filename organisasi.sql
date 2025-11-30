@@ -101,7 +101,7 @@ CREATE TABLE `users` (
   `status` enum('active','noneactive') NOT NULL DEFAULT 'active',
   `avatar` text NOT NULL DEFAULT '/profile.webp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+  
 --
 -- Dumping data for table `users`
 --

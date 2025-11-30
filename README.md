@@ -23,6 +23,7 @@ Teknologi yang digunakan
 •	Passport-local
 
 Instalasi dan Setup 
+
 Sebelum memulai proses instalasi, pastikan perangkat Anda terhubung ke jaringan internet dan Node.js sudah terpasang.
 1.	Clone Repository
 git clone https://github.com/Fauzank216/organisasi-app

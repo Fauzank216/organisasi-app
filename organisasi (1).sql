@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2025 at 02:34 PM
+-- Generation Time: Nov 30, 2025 at 03:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -97,17 +98,18 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(150) NOT NULL,
   `role` enum('admin','member') NOT NULL DEFAULT 'member',
-  `status` enum('active','noneactive') NOT NULL DEFAULT 'active'
+  `status` enum('active','noneactive') NOT NULL DEFAULT 'active',
+  `avatar` text NOT NULL DEFAULT '/profile.webp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `status`) VALUES
-(4, 'Mr Anggarawa', 'Ujang1234@gmail.com', '$2b$10$UXAmxM/smG4TDTsORsztk.61Kli2JZQglubBBys3pXn0/FEC3kZUy', 'admin', 'active'),
-(7, 'Agus kuncoro', 'Ujang1234@gmail.com', '$2b$10$Hwjtroy53nkTor1bNvegBOp1MYFniAhwZzaPb0yLAtIHTtlbebuKK', 'member', 'active'),
-(9, 'Fauzan Muammar Kamil', 'Fauzan216@gmail.com', '$2b$10$kLcPkJOfOLHUOKjjYf5zgeoOlEckXGlqO75Bd1NKZTugey95Mq7Yq', 'member', 'active');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `status`, `avatar`) VALUES
+(4, 'Mr Anggarawa', 'Ujang1234@gmail.com', '$2b$10$UXAmxM/smG4TDTsORsztk.61Kli2JZQglubBBys3pXn0/FEC3kZUy', 'admin', 'active', '/profile.webp'),
+(7, 'Agus kuncoro', 'Ujang1234@gmail.com', '$2b$10$Hwjtroy53nkTor1bNvegBOp1MYFniAhwZzaPb0yLAtIHTtlbebuKK', 'member', 'active', '/profile.webp'),
+(9, 'Fauzan Muammar Kamil', 'Fauzan216@gmail.com', '$2b$10$kLcPkJOfOLHUOKjjYf5zgeoOlEckXGlqO75Bd1NKZTugey95Mq7Yq', 'member', 'active', '/profile.webp');
 
 --
 -- Indexes for dumped tables

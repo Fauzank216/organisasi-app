@@ -1,0 +1,19 @@
+<header class="header_nav">
+    <nav class="navbar mobile_nav">
+        <div class="logo_navbar"><img src="/img/asset/WhatsApp_Image_2025-11-26_at_19.03.41-removebg-preview.png" alt="" style="width: 80px;"></div>
+        <ul>
+            <li><a href="/page/home">Home</a></li>
+            <li><a href="/page/about">About</a></li>
+            <li><a href="/page/organigram">Organigram</a></li>
+            <li><a href="/page/information">Information</a></li>
+            <% if (!isMember) { %>
+                <li><a href="/page/login">Sign Up</a></li>
+            <% } %>
+            <% if (isMember) { %>
+              <li><a href="/page/profile">Profile</a></li>
+              <li><a href="/page/attandance">Attandance</a></li>
+            <% } %>
+        </ul>
+        <img src="/img/asset/menu(1).svg" alt="" class="humberger_menu">
+    </nav>
+</header>

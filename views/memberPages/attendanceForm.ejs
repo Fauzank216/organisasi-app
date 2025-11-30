@@ -1,0 +1,51 @@
+
+
+<section class="hero_section">
+   <%- include('../partials/navbar', isMember) %>
+<div class="attandance_container">
+    <h1>Jadwal Kegiatan</h1>
+    <div class="attandance_content">
+        <div class="card_attandance">
+            <div class="section_event">
+                <div>
+                    <label for="acara">Nama Acara</label>
+                    <input type="text" id="acara" readonly value="">
+                </div>
+                <div>
+                    <label for="tanggal">Tanggal Mulai</label>
+                    <input type="date" id="tanggal" readonly value="">
+                </div>
+                <div>
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea name="deskripsi" id="deskripsi" readonly></textarea>
+                </div>
+                <div>
+                    <button id="triger_absen">Absen</button>
+                </div>
+                <div>
+                    <input type="checkbox" name="reminder" id="reminder">Ingatkan saya
+                </div>
+            </div>
+            <div class="section_absen hide">
+                <h1>Isi Absen</h1>
+                <div>
+                    <input type="radio" class="checkbox_absen" name="checkbox_absen" id="hadir" value="hadir">
+                    Hadir
+                    <input type="radio" class="checkbox_absen" name="checkbox_absen" id="izin" value="izin" c>
+                    Izin
+                    <input type="radio" class="checkbox_absen" name="checkbox_absen" id="sakit" value="sakit">
+                    Sakit
+                </div>
+                <button id="btn_absen">Kirim Absen</button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay hide">
+        <div class="popup_reminder">
+            <h2>Reminder</h2>
+            <p>Jangan lupa mengisi absen hari ini!</p>
+            <button class="close_btn">Tutup</button>
+        </div>
+    </div>
+</div>
+</section>

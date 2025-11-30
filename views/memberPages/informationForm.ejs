@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            background: linear-gradient (135deg, #9b99c1a1, #9C9EC4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea,
+        select,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        #create_btn,
+        #edit_btn {
+            width: 100%;
+            padding: 12px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #223562;
+            transition: background 0.3s;
+        }
+
+
+
+        .spinner-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(75, 75, 75, 0.505);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            width: 45px;
+            height: 45px;
+            border: 6px solid #ccc;
+            border-top-color: #73749c;
+            /* biru */
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .backrow {
+            cursor: pointer;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 30px;
+        }
+
+        .backrow:hover {
+            transform: scale(1.2);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/img/asset/arrow-left-circle.svg" alt="back row" class="backrow">
+    <div class="form-container">
+        <h2>Information Form</h2>
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= data?.title || '' %>" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" required><%= data?.content || '' %></textarea>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Pilih kategori</option>
+                <option value="teknologi" <%=data?.category==='teknologi' ? 'selected' : '' %>>Teknologi</option>
+                <option value="olahraga" <%=data?.category==='olahraga' ? 'selected' : '' %>>Olahraga</option>
+                <option value="pendidikan" <%=data?.category==='pendidikan' ? 'selected' : '' %>>Pendidikan</option>
+            </select>
+
+            <label for="thumbnail">Thumbnail:</label>
+            <input type="file" id="thumbnail" name="thumbnail" accept="image/*" required>
+
+            <% if (mode=='update' ) { %>
+                <button id="edit_btn" data-id="<%= data?.id %>">Save</button>
+                <% }else{ %>
+                    <button id="create_btn">Create</button>
+                    <% } %>
+
+        </div>
+
+        <%- include('../partials/loadingSpinner') %>
+            <script>
+
+                async function createContent() {
+                    const title = document.getElementById('title').value
+                    const content = document.getElementById('content').value
+                    const category = document.getElementById('category').value
+                    const thumbnail = document.getElementById('thumbnail').files[0]
+                    const fd = new FormData()
+                    fd.append('title', title)
+                    fd.append('content', content)
+                    fd.append('category', category)
+                    fd.append('thumbnail', thumbnail)
+                    loadingSpinner()
+                    const response = await fetch('/api/content', {
+                        method: 'POST',
+                        body: fd
+                    })
+                }
+
+                async function updateContent(id) {
+                    const title = document.getElementById('title').value
+                    const content = document.getElementById('content').value
+                    const category = document.getElementById('category').value
+
+                    const response = await fetch(`/api/content/${id}`, {
+                        method: 'PUT',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ title, category, content })
+                    })
+                }
+
+                function loadingSpinner() {
+                    document.querySelector('.spinner-wrapper').style.display = 'flex'
+                    let timer = setTimeout(() => {
+                        document.querySelector('.spinner-wrapper').style.display = 'none'
+                        clearTimeout(timer)
+                    }, 2000)
+                }
+
+                const btnEdit = document.getElementById('edit_btn')
+                if (btnEdit) {
+                    btnEdit.addEventListener('click', async function (e) {
+                        let id = e.target.getAttribute('data-id')
+                        loadingSpinner()
+                        await updateContent(id)
+
+                    })
+                }
+
+                const btnCreate = document.getElementById('create_btn')
+                if (btnCreate) {
+                    btnCreate.addEventListener('click', createContent)
+                }
+
+                const backrow = document.querySelector('.backrow')
+                backrow.addEventListener('click', function () {
+                    window.location.href = '/page/information'
+                })
+            </script>
+</body>
+
+</html>

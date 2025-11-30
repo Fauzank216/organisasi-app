@@ -1,0 +1,246 @@
+body {
+    overflow: hidden;
+}
+
+.hero_content {
+    position: relative;
+}
+
+.box1 p {
+    display: none;
+}
+
+.hero_content .box1 {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.hero_content .box1>h1 {
+    position: absolute;
+    top: 18%;
+    left: 33%;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20vw;
+    font-weight: 50;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+
+    transform: scale(1.5);
+}
+
+.hero_content .box1 h1:nth-of-type(1) {
+    -webkit-text-fill-color: #182645;
+    z-index: -1;
+}
+
+.hero_content .box1 h1:nth-of-type(2) {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.895);
+    -webkit-text-stroke-width: 2px;
+    z-index: 1;
+}
+
+/* BOX1 IMG */
+.hero_content .box1 img {
+    position: absolute;
+    top: -5%;
+    right: 22%;
+    height: 48vw;
+    filter: drop-shadow(16px -1px 13px #00000067);
+}
+
+/* .logo_navbar{
+    margin-left: 100px;
+} */
+
+#btn_read_more_home {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 130px;
+    padding: 15px;
+    font-size: 1.2rem;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: rgba(255, 255, 255, 0.848);
+    color: #182645;
+
+    z-index: 1;
+}
+
+#btn_read_more:hover {
+    background-color: rgba(255, 255, 255, 0.947);
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    top: 6%;
+    left: 24%;
+
+    height: max-content;
+    font-family: sans-serif;
+}
+
+.logo {
+    width: 80px;
+}
+
+.box2 p {
+    font-weight: bold;
+    color: #182645;
+}
+
+.hero_content>p {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.hero_content>p {
+    display: none;
+}
+
+/* PERUBAHAN LAYOUT */
+.hero_content.change .box1 h1:nth-of-type(1) {
+    top: 15%;
+    left: 15%;
+    font-size: 13vw;
+    animation: textMuncul 2s ease-in-out;
+    z-index: auto;
+}
+
+.hero_content.change .box1 h1:nth-of-type(2) {
+    opacity: 0;
+    animation: hideText 3s ease-in-out;
+}
+
+
+.hero_content.change .box2 {
+    animation: fadeIn 3s ease-in-out;
+    top: 5%;
+    left: 7%;
+}
+
+.hero_content.change #btn_read_more {
+    animation: btnMuncul 2s ease-in-out;
+    top: 70%;
+    left: 55%;
+}
+
+.hero_content .box1 p {
+    display: none;
+}
+
+.hero_content.change .box1 img {
+    height: 48vw;
+    right: 0;
+    top: -5%;
+    animation: gambarMuncul 2s ease-in-out;
+    z-index: auto;
+}
+
+.hero_content.change .box1 p {
+    display: block;
+    position: absolute;
+    margin-top: 15px;
+    top: 50%;
+    left: 10%;
+    width: 500px;
+    font-family: sans-serif;
+    color: #182645e6;
+    letter-spacing: 1px;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.hero_content.change>p {
+    position: absolute;
+    display: block;
+    text-align: right;
+    width: 350px;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    top: 80%;
+    font-size: 1.3rem;
+    right: 10%;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes textMuncul {
+    from {
+        top: 18%;
+        left: 33%;
+        font-size: 20vw;
+    }
+
+    to {
+        top: 15%;
+        left: 15%;
+         font-size: 13vw;
+    }
+}
+
+@keyframes gambarMuncul {
+    from {
+        height: 48vw;
+        top: -5%;
+        right: 22%;
+    }
+
+    to {
+        height: 48vw;
+        right: 0;
+        top: -5%;
+    }
+}
+
+@keyframes btnMuncul {
+    from {
+        top: 65%;
+        left: 50%;
+        opacity: 0.5;
+    }
+
+    to {
+        top: 70%;
+        left: 55%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideText {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* END OF PERUBAHAN LAYOUT */

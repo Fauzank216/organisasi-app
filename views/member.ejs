@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/halaman1.css">
+    <link rel="stylesheet" href="/css/animasi.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- ORGANIGRAM CSS -->
+    <% if (page=='organigram' ) { %>
+        <link rel="stylesheet" href="/css/organigram.css">
+        <% } %>
+            <!-- ABOUT CSS -->
+            <% if (page=='about' ) { %>
+                <link rel="stylesheet" href="/css/about.css">
+                <% } %>
+
+                    <!-- INFORMATION CSS -->
+                    <% if (page=='information' ) { %>
+                        <link rel="stylesheet" href="/css/information.css">
+                        <% } %>
+                            <!-- AUTH CSS -->
+                            <% if (page=='login' ) { %>
+                                <link rel="stylesheet" href="/css/auth.css">
+                                <% } %>
+                                    <% if (page=='attendanceForm' ) { %>
+                                        <link rel="stylesheet" href="/css/attendanceForm.css">
+                                        <% } %>
+
+</head>
+
+<body>
+    <%- include(`memberPages/${page}`, isMember) %>
+        <div class="overlay hide">
+            <div class="popup_reminder">
+                <h2>Reminder</h2>
+                <p>Jangan lupa mengisi absen hari ini!</p>
+                <button class="close_btn">Tutup</button>
+            </div>
+        </div>
+    
+        <%- include('partials/successPopUp') %>
+        <%- include('partials/loadingSpinner') %>
+
+        <script src="/js/member.js"></script>
+        <% if (page=='information' ) { %>
+            <script src="/js/madding.js"></script>
+            <% } %>
+                <% if (page=='organigram' ) { %>
+                    <script src="/js/organigram.js"></script>
+                    <% } %>
+                        <% if (page=='profile' ) { %>
+                            <script src="/js/profile.js"></script>
+                            <% } %>
+                                <% if (page=='attendanceForm' ) { %>
+                                    <script src="/js/attendanceForm.js"></script>
+                                    <% } %>
+
+</body>
+
+</html>

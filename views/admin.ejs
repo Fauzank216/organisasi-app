@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/css/admin.css">
+
+    <% if (page=='manageAttendance' ) { %>
+        <link rel="stylesheet" href="/css/manageAttendance.css">
+        <% } %>
+
+</head>
+
+<body>
+    <main>
+        <!-- SIDE BAR -->
+        <%- include('partials/sideBar') %>
+            <div id="page_container">
+                <%- include(`adminPages/${page}`) %>
+            </div>
+            <div id="editModal" class="modal_overlay noneActive">
+                <div class="modal_content">
+                    <div class="modal_header">
+                        <h2>Edit Account</h2>
+                        <button class="close_btn" id="closeBtn">&times;</button>
+                    </div>
+                    <div id="editForm">
+                        <div class="form_group">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name_edit_profile" required>
+                        </div>
+                        <div class="form_group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email_edit_profile" required>
+                        </div>
+                        <div class="form_group">
+                            <label for="phone">No Telp</label>
+                            <input type="tel" id="phone_edit_profile" required>
+                        </div>
+                        <div class="form_group">
+                            <input type="file">
+                        </div>
+                    </div>
+                    <div class="modal_btn">
+                        <button class="btn btn_primary" id="btn_save">Save</button>
+                    </div>
+                </div>
+            </div>
+            <%- include('partials/loadingSpinner') %>
+                <%- include('partials/successPopUp') %>
+
+    </main>
+    <%- include('partials/confirmPopUp_admin') %>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/js/admin.js"></script>
+        <script src="/js/sidebar.js"></script>
+</body>
+
+</html>

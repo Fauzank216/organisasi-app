@@ -1,0 +1,264 @@
+/*   GLOBAL ANIMATIONS */
+
+/* Fade untuk gambar */
+@keyframes fade-img {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade-out {
+    from{
+        opacity: 1;
+    }to{
+        opacity: 0;
+    }
+}
+
+@keyframes fade-img-slide-1 {
+    from {
+        transform: translate(-25%, -5%);
+    }
+
+    to {
+        transform: translate(0%, -5%);
+    }
+}
+
+@keyframes fade-img-slide-2 {
+    from {
+        opacity: 0.5;
+        transform: translate(120%, -10%) scale(1.1);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(120%, -10%) scale(1.2);
+    }
+}
+
+/* Fade untuk text */
+@keyframes fade-text-zoom {
+    from {
+        opacity: 0.5;
+        transform: translate(-50%, -40%) scale(1.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0) scale(1.3);
+    }
+}
+
+@keyframes hide-text {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-text-slide {
+    from {
+        opacity: 0.5;
+        transform: translateX(30%) scale(1.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1.3);
+    }
+}
+
+@keyframes fade-text-3 {
+    from {
+        opacity: 0.2;
+        transform: translate(45%, 50%) scale(1.3);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0) scale(1.3);
+    }
+}
+
+/* Global clip animations */
+@keyframes clip-1 {
+    from {
+        opacity: 0.5;
+        transform: translateX(30%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes clip-2 {
+    from {
+        /* clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%); */
+        transform: translateX(0);
+    }
+
+    to {
+          transform: translateX(-40%);
+    }
+}
+
+/*LAYOUT AWAL*/
+.organigram_content.content .orang1 {
+    animation: fade-img 1s ease-in-out;
+}
+
+.organigram_content .orang2 {
+    animation: fade-img 1s ease-in-out;
+}
+
+.organigram_content.content .box1>h1:nth-of-type(1) {
+    animation: fade-text-zoom 1.5s ease-in-out;
+}
+
+.organigram_content.content .box1>h1:nth-of-type(2) {
+    animation: fade-img 1.5s ease-in-out;
+}
+
+#organigram {
+    animation: fade-img 1.5s ease-in-out;
+}
+
+/*LAYOUT 1*/
+
+.organigram_content.img1 .orang1 {
+    animation: fade-img-slide-1 1s ease-in-out;
+}
+
+.organigram_content.img1 .box1.organigram>h1:nth-of-type(1) {
+    animation: fade-text-slide 1s ease-in-out;
+}
+
+.organigram_content.img1 .box1.organigram>h1:nth-of-type(2) {
+    animation: hide-text 1.5s ease-in-out;
+}
+
+/* LAYOUT 1 tambahan untuk img2 */
+.organigram_content.img2 .orang1 {
+    animation: hide-text 1.5s ease-in-out;
+  
+}
+
+/* LAYOUT 2 */
+
+.hero_section.img2::before {
+    animation: clip-1 1.5s ease-in-out;
+}
+
+.organigram_content #ketua,
+.nama {
+    animation: fade-img 1.5s ease-in-out;
+}
+
+.organigram_content.img2 .orang2 {
+    animation: fade-img-slide-2 1.5s ease-in-out;
+}
+
+
+/*LAYOUT 3*/
+
+.hero_section.img3::before {
+    animation: clip-2 1.5s ease-in-out;
+}
+
+/* LAYOUT 4 */
+.organigram_content.img4 .box1.organigram>h1:nth-of-type(1) {
+    animation: fade-text-4 1.5s ease-in-out;
+}
+
+.organigram_content.img4 .orang2 {
+    animation: fade-img 1.5s ease-in-out;
+}
+
+@keyframes fade-text-4 {
+    from {
+        transform: translateX(-70%);
+    }
+
+    to {}
+}
+
+/* LAYOUT 5 */
+.hero_section.img5::before {
+    animation: fade-img 1.5s ease-in-out;
+}
+
+@keyframes clip-5 {
+    from {
+        
+    }
+
+    to {
+        
+    }
+}
+
+/* LAYOUT 6 */
+.hero_section.img6 {
+    animation: fade-in-6 1.5s ease-in-out;
+}
+
+@keyframes fade-in-6 {
+    from {
+        opacity: 0.8;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hero_section.img6 {
+    animation: fade-img 1.2s ease-in-out;
+}
+/* LAYOUT 7 */
+.organigram_content.img7{
+    animation: fade-img 1.2s ease-in-out;
+}
+
+/* LAYOUT 8 */
+.hero_section.img8::before{
+    animation: clip-8 1s ease-in-out;
+}
+
+@keyframes clip-8 {
+    from{
+        transform: translateX(15%);
+    }to{
+        transform: translateX(40%);
+    }
+}
+
+.hero_section.img9::before{
+    animation: fade-img 1.2s ease-in-out;
+}
+.hero_section.img10::before{
+    animation: fade-img 1.2s ease-in-out;
+}
+.hero_section.img11::before{
+    animation: fade-img 1.2s ease-in-out;
+}
+.hero_section.img12::before{
+    animation: fade-img 1.2s ease-in-out;
+}
+.hero_section.img13::before{
+    animation: fade-img 1.2s ease-in-out;
+}
+.hero_section.img14::before{
+    animation: fade-img 1.2s ease-in-out;
+}

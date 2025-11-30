@@ -1,0 +1,153 @@
+.attandance_container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+}
+
+.attandance_container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.attandance_content {
+    display: flex;
+    justify-content: center;
+}
+
+.card_attandance {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.section_event div {
+    margin-bottom: 15px;
+}
+
+.section_event label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.section_event input[type="text"],
+.section_event input[type="date"],
+.section_event textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.section_event textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.section_event button {
+    background-color: #1d336f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
+}
+
+#btn_absen {
+    background-color: #1d336f;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: max-content;
+}
+
+.section_event button:hover {
+    background-color: #15254f;
+}
+
+.section_event input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.card_attandance>div:last-child {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.card_attandance>div:last-child h1 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.card_attandance>div:last-child div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.card_attandance>div:last-child input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.popup_reminder h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.popup_reminder p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.popup_reminder {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+}
+
+.close_btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.close_btn:hover {
+    background-color: #0056b3;
+}

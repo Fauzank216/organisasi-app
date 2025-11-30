@@ -1,0 +1,55 @@
+<section class="hero_section">
+     <%- include('../partials/navbar') %>
+   <div class="profile_container">
+        <div class="profile_img">
+            <img src="/profile.webp" alt="profile_picture">
+            <p id="trigger_edit_profile">Edit Profile</p>
+        </div>
+        <div class="profile_content">
+            <div class="header">
+                 <h1 class="member_name"></h1>
+                 <p class="member_email"></p>
+                 <p>Joinned : <span class="member_join">01/11/25</span></p>
+                 <p>Role : <span class="member_role"></span></p>
+                 <div>
+                    <button disabled class="role_profile"></button>
+                    <button disabled class="status_profile"></button>
+                    <button id="btn_logout">Logout</button>
+                 </div>
+            </div>
+            <div class="profile_history">
+                <h3>Riwayat Aktivitas</h3>
+                <div class="filter_history">
+                    <a href="#" id="tab-all">All</a>
+                    <a href="#" id="tab-absen">Absen</a>
+                    <a href="#" id="tab-madding">madding</a>
+                </div>
+                <div class="profile_history_content activity-list">
+                
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <div class="form_edit_profile">
+        <div>
+            <div>
+                <label for="name_profile">Name</label>
+                <input type="text" class="input-control" id="name_profile">
+            </div>
+            <div>
+                <label for="email_profile">Email</label>
+                <input type="text" class="input-control" id="email_profile">
+            </div>
+            <div>
+                <label for="noTelp_profile">No Telp</label>
+                <input type="text" class="input-control" id="noTelp_profile">
+            </div>
+            <div>
+                <button id="sv_btn_profile">Save</button>
+                <button id="cancel_btn_profile">Cancel</button>
+            </div>
+        </div>
+   </div>
+
+</section>

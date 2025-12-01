@@ -152,7 +152,9 @@ const btnLogout = document.getElementById('btn_logout')
 if (btnLogout) {
     btnLogout.addEventListener('click', async function () {
         await fetchData('/api/logout', 'GET')
-        window.location.reload()
+        loading(true, function(){
+            window.location.reload()
+        })
     })
 }
 

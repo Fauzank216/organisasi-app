@@ -73,7 +73,7 @@ async function renderProfile() {
     let data = await getSelfData()
     document.querySelector('.self_name').textContent = data.name
     document.querySelector('.self_email').textContent = data.email
-    document.querySelector('#profile_avatar').setAttribute('src', data.avatar?`/img/uploads/avatar/${data.avatar}`:"/img/uploads/profile.webp")
+    document.querySelector('#profile_avatar').setAttribute('src', data.avatar?`/img/uploads/avatar/${data.avatar}`:"/img/uploads/avatar/profile.webp")
     if (document.querySelector('.welcome')) {
         document.querySelector('.welcome').textContent = `Welcome ${data.name}`
     }

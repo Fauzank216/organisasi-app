@@ -42,7 +42,9 @@ async function login() {
     const email = document.getElementById('email_login').value
     const password = document.getElementById('password_login').value
     const response = await fetchData('/api/login', 'POST', { email, password })
-    window.location.href = response.url
+    loading(true, function(){
+        window.location.href = response.url
+    })
     return
 }
 
@@ -73,8 +75,11 @@ async function register() {
     const nama = document.getElementById('username_register').value
     const email = document.getElementById('email_register').value
     const password = document.getElementById('password_register').value
-    const response = await fetchData('/api/register', 'POST', { nama, email, password })
-    window.location.href = response.url
+    const notelp = document.getElementById('noTelp_register').value
+    const response = await fetchData('/api/register', 'POST', { nama, email, notelp, password })
+    loading(true, function(){
+        window.location.href = response.url
+    })
     return
 }
 

@@ -60,7 +60,7 @@ async function renderUser() {
         const rowHTML = `
             <tr>
                 <td class="td_photo">
-                    <img src="/profile.webp" alt="" style="width: 50px;">
+                    <img src="${user.avatar?`/img/uploads/avatar/${user.avatar}`: `/img/uploads/profile.webp`}" alt="" style="width: 50px;">
                 </td>
                 <td class="td_nama">
                     ${user.name}

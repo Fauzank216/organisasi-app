@@ -38,10 +38,10 @@ trigerPopUpEditProfile.addEventListener('click', async function () {
     const data = await getSelfData()
 
     saveBtnEditProfile.setAttribute('data-id', data.id)
-    console.log(data)
+    
     document.getElementById('name_edit_profile').value = data.name;
     document.getElementById('email_edit_profile').value = data.email;
-    console.log(data.email)
+    
     document.getElementById('phone_edit_profile').value;
     popupEditProfile.style.display = 'flex';
 });
@@ -73,6 +73,7 @@ async function renderProfile() {
     let data = await getSelfData()
     document.querySelector('.self_name').textContent = data.name
     document.querySelector('.self_email').textContent = data.email
+    document.querySelector('#profile_avatar').setAttribute('src', data.avatar?`/img/uploads/avatar/${data.avatar}`:"/img/uploads/profile.webp")
     if (document.querySelector('.welcome')) {
         document.querySelector('.welcome').textContent = `Welcome ${data.name}`
     }

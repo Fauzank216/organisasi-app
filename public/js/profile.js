@@ -77,21 +77,41 @@ async function renderActivityList(data) {
     })
 }
 
+
 async function saveEdit(e) {
-    const values = Array.from(document.querySelectorAll('.input-control')).map(input => input.value)
-    const json = { name: values[0], email: values[1] }
-    let userId = e.target.getAttribute('data-id')
-    const response = await fetchData(`/api/users/${userId}`, 'PATCH', json)
-    if(response.ok){
-        loading(true, popUpResult)
+
+    const fd = new FormData()
+
+    const avatar = document.querySelector('.avatar').files[0]
+    const values = Array.from(document.querySelectorAll('.input-control'))
+        .map(input => input.value)
+    fd.append('name', values[0])
+    fd.append('email', values[1])
+    fd.append('notelp', values[2])
+
+    if (avatar) {
+        fd.append('avatar', avatar)
+    }
+
+
+    let userId = e.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/users/${userId}`, {
+        method: 'PATCH',
+        body: fd
+    });
+
+    loading(true, popUpResult)
+    if (response.ok) {
         await renderProfile()
     }
+
     return response
 }
 
 async function setInputValue(values = []) {
     const inputControlls = Array.from(document.querySelectorAll('.input-control'))
-    const keys = ['name', 'email']
+    const keys = ['name', 'email', 'no_telp']
     inputControlls.map((input, i) => input.value = values[keys[i]])
     btnSave.setAttribute('data-id', values.id)
 }
@@ -131,8 +151,8 @@ function deleteCookie(name) {
 const btnLogout = document.getElementById('btn_logout')
 if (btnLogout) {
     btnLogout.addEventListener('click', async function () {
-         await fetchData('/api/logout', 'GET')
-         window.location.reload()
+        await fetchData('/api/logout', 'GET')
+        window.location.reload()
     })
 }
 
@@ -143,9 +163,14 @@ async function renderProfile() {
     document.querySelector('.role_profile').textContent = response.role
     document.querySelector('.member_role').textContent = response.role
     document.querySelector('.status_profile').textContent = response.status
+    document.querySelector('.profile_picture')
+        .setAttribute('src', response?.avatar
+            ? `/img/uploads/avatar/${response.avatar}`
+            : '/profile.webp'
+        );
+
+
 }
-
-
 
 renderProfile()
 fetchAllHistory(renderActivityList);

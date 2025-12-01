@@ -161,7 +161,7 @@ if (cardDetailContainer) {
                 btnDelete.setAttribute('data-id', e.target.getAttribute('data-id'))
             }
 
-            // show detail
+           
             cardDetailContainer.classList.remove('noneActive');
             cardDetailContainer.classList.add('active');
         } else {

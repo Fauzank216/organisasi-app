@@ -2,7 +2,7 @@
      <%- include('../partials/navbar') %>
    <div class="profile_container">
         <div class="profile_img">
-            <img src="/profile.webp" alt="profile_picture">
+            <img class="profile_picture" src="/profile.webp" alt="profile_picture">
             <p id="trigger_edit_profile">Edit Profile</p>
         </div>
         <div class="profile_content">
@@ -44,6 +44,9 @@
             <div>
                 <label for="noTelp_profile">No Telp</label>
                 <input type="text" class="input-control" id="noTelp_profile">
+            </div>
+            <div>
+                <input type="file" class="avatar">
             </div>
             <div>
                 <button id="sv_btn_profile">Save</button>

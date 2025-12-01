@@ -1,9 +1,11 @@
 //Edit user, hapus user, searchingByUsername
 import { getAttendanceHistory } from "../models/AttendanceModels.js"
 import { getContentHistory } from "../models/MaddingModels.js"
-import { deleteUserById, findAllUsers, findUserById, findUserByName, updateStatusUser, updateUserById } from "../models/UserModels.js"
+import { deleteUserById, findAllUsers, findUserById, findUserByName, updateAvatarOnly, updateStatusUser, updateUserById } from "../models/UserModels.js"
 import controllerHandler from "../utils/ControllerHandler.js"
 import { errorResponse, successResponse } from "../utils/Formatter.js"
+
+
 
 const updateUser = async (req, res) => {
     if (!req.isAuthenticated()) return errorResponse(res, 401, 'Please log in to continue.')
@@ -18,8 +20,13 @@ const updateUser = async (req, res) => {
         return errorResponse(res, 404, `Couldn't find user with id ${userId}.`)
     }
 
-    let { name, email } = req.body
-    controllerHandler(res, [name, email, userId], updateUserById)
+    let { name, email, notelp } = req.body
+
+    if (req.file && req.file.filename) {
+        await updateAvatarOnly([req.file.filename, userId])
+    }
+
+    controllerHandler(res, [name, email, notelp, userId], updateUserById)
 }
 
 const deleteUser = async (req, res) => {

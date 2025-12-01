@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"
 
 
 const register = async (req, res) => {
-    let { nama, email, password } = req.body
+    let { nama, email, noTelp, password } = req.body
 
     if (!validateEmail(email) || !validatePassword(password)) {
         return errorResponse(res, 400, 'Invalid Request Data')
@@ -18,7 +18,7 @@ const register = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-    const newUser = await createUser([nama, email, hashedPassword])
+    const newUser = await createUser([nama, email, noTelp, hashedPassword])
     return successResponse(res, 200, 'Login successfully', { url: '/page/member' })
 
 }

@@ -95,6 +95,6 @@ const getContentHistory = async (memberId = []) => {
 
 /*
 SELECT schedule.id, schedule.activity, users.name as created_by, schedule.created_at, schedule.date_start, schedule.date_end, schedule.status FROM schedule INNER JOIN users ON users.id = schedule.created_by WHERE users.id = '4';
-*/ 
+*/
 
 export { createContent, updateContent, updateApprovalStatus, getContentById, getAllPublishedContent, deleteContent, getAllContents, getContentByCategory, getContentByDate, getContentByTitle, getContentHistory }

@@ -1,7 +1,7 @@
 import runQuery from "../utils/Model.js"
 
 const createUser = async (values = []) => {
-    const query = 'INSERT INTO users (name, email, password) VALUES(?, ?, ?)'
+    const query = 'INSERT INTO users (name, email, no_telp, password) VALUES(?, ?, ?, ?)'
     console.log('dari user model : ', values)
     let [QueryResult] = await runQuery(query, values)
     return {
@@ -44,13 +44,22 @@ const findUserByName = async (nama = []) => {
 }
 
 const updateUserById = async (values = []) => {
-    const query = 'UPDATE users SET name = ?, email = ? WHERE id = ? '
+    const query = 'UPDATE users SET name = ?, email = ?, no_telp = ? WHERE id = ? '
     let [QueryResult] = await runQuery(query, values)
     return {
         info: QueryResult.info,
         affectedRows: QueryResult.affectedRows
     }
 }
+
+ const updateAvatarOnly = async (value = []) => {
+    const query = `
+        UPDATE users
+        SET avatar = ?
+        WHERE id = ?
+    `;
+    return runQuery(query, value);
+};
 
 const updateStatusUser = async (values = []) => {
     const query = 'UPDATE users SET status = ? WHERE id = ? '
@@ -61,4 +70,4 @@ const updateStatusUser = async (values = []) => {
     }
 }
 
-export { createUser, findAllUsers, findUserByEmail, findUserById, findUserByName, updateUserById, deleteUserById, updateStatusUser }
+export { createUser, findAllUsers, findUserByEmail, findUserById, findUserByName, updateUserById, deleteUserById, updateStatusUser, updateAvatarOnly }

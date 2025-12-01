@@ -96,6 +96,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `no_telp` varchar(20) NOT NULL
   `password` varchar(150) NOT NULL,
   `role` enum('admin','member') NOT NULL DEFAULT 'member',
   `status` enum('active','noneactive') NOT NULL DEFAULT 'active',
